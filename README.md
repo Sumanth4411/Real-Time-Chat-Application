@@ -31,3 +31,4 @@ If extended further, the chat app could be upgraded with features like user auth
 But even in its current minimal form, the application stands as a testament to how a small amount of well-structured code and the right tools can create something immediately functional, interactive, and engaging. It’s a fantastic showcase of WebSockets in action and serves as a base that’s easy to understand, improve, and build upon. It’s lightweight, portable, and quick to deploy, making it ideal for learning and demonstration purposes.
 
 #output:
+![Image](https://github.com/user-attachments/assets/e1ffe0c1-dbc6-4bf3-ad6b-75c6f2bd228c)
