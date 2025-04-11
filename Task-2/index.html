@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real-Time Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    #chat-box {
+      height: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      background: #fff;
+      margin-bottom: 10px;
+    }
+    .message {
+      padding: 5px;
+      margin: 5px 0;
+      background: #e0f7fa;
+      border-radius: 4px;
+    }
+    #input-area {
+      display: flex;
+    }
+    #message {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+    }
+    #send {
+      padding: 8px 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🟢 Real-Time Chat</h2>
+  <div id="chat-box"></div>
+  <div id="input-area">
+    <input type="text" id="message" placeholder="Type a message..." />
+    <button id="send">Send</button>
+  </div>
+
+  <script>
+    const ws = new WebSocket(`ws://${location.host}`);
+
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message');
+    const sendButton = document.getElementById('send');
+
+    ws.onmessage = (event) => {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message';
+      msgDiv.textContent = event.data;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+    sendButton.onclick = () => {
+      const msg = messageInput.value.trim();
+      if (msg !== '') {
+        ws.send(msg);
+        messageInput.value = '';
+      }
+    };
+
+    messageInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendButton.click();
+    });
+  </script>
+</body>
+</html>
