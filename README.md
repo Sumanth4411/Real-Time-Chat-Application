@@ -2,13 +2,6 @@
 
 #NAME:S.Sumanth Kumar
 
-#DOMAIN: FRONTEND DEVELOPMENT
-
-#INTERNID: CT04WR273
-
-#MENTOR NAME:NEELA SANTHOSH
-
-#DURATION: 4 WEEKS
 
 #Descrption: Creating a real-time chat application has been one of the most enriching and practically rewarding projects I've worked on. The idea behind this application was to build something that captures real-time interaction, mirroring the instant nature of modern messaging platforms, and showcasing the capabilities of WebSocket technology combined with clean, functional front-end development.
 
